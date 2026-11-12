@@ -1,0 +1,17 @@
+ conda
+   3 conda activate
+   4 conda --version
+   5 conda list
+   6 conda env list
+   7 conda create -n primeenv
+   8 conda activate primeenv
+   9 conda env list
+  10 clear
+  11 conda env remove -n primeenv
+  12 conda deactivate
+  13 env conda list
+  14 conda env list
+  15 conda env remove -n primeenv
+  16 clear
+  17 conda deactivate
+  18 clear
