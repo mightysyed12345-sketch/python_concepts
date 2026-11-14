@@ -39,6 +39,7 @@ public class Main {
         c2.color="blue";
         c2.speed=230;
         System.out.println(c1.speed);
+        //agar apan isko koi method sai deep copy bana saktai hai jaisai ki this.address=new address(s.address) jaisa deep copy boltai hai pahle apan dhaikai soo shallow copy hai 
     }
 }
 //access and modifiers:who can use or modify a piece of code. They are central to encapsulation, one of the core principles of OOP, ensuring that internal object details are protected from unintended external access.by getters and setters
