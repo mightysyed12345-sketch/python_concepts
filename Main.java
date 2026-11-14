@@ -1,48 +1,59 @@
 public class Main {
-    static class Car {
-    String color;
-    int speed;
-    Car(Car s) {//copy constructor
-        this.color=s.color;
-        this.speed=s.speed;//reference copied 
-    }
-    void setcolor(String cc)  {
-        color=cc;
-    }
-    public String getColor()  {
-        return color;
-    }
-    void start() {
-        System.out.println("Car Started");
-    }
-    Car()  {
-        System.out.println("constructor is called ....");
-    }
-}
     public static void main(String[] args) {
-        //object oriented programming system:Object-Oriented Programming (OOP) is a programming paradigm where programs are built using objects—self-contained units that hold data (attributes) and functions (methods).
-        //why it is used:
-        //Better code organization
-        //Reusability through classes and inheritance
-        //Easier debugging and maintenance
-        //Supports large-scale software development
-        //classes and objects:
-        Car c1 = new Car();//created the car object called c1
-        c1.color = "Red";
-        c1.speed = 120;
-        c1.start();
-        //Car = Class (blueprint)
-        //c1 = Object (actual car)
-        //color, speed = Attributes/Data
-        //start() = Method/Behavior
-        Car c2=new Car(c1);
-        c2.color="blue";
-        c2.speed=230;
-        System.out.println(c1.speed);
-        //agar apan isko koi method sai deep copy bana saktai hai jaisai ki this.address=new address(s.address) jaisa deep copy boltai hai pahle apan dhaikai soo shallow copy hai 
+        Smartphone s = new Smartphone();
+
+        s.clickPhoto();
+        s.playMusic();
     }
 }
-//access and modifiers:who can use or modify a piece of code. They are central to encapsulation, one of the core principles of OOP, ensuring that internal object details are protected from unintended external access.by getters and setters
-//Encapsulation:wrapping up the data & methods under a single unit it also implements data hiding
-// constructors is the special method iinvoked automatically at the time of object creation  1)constructors have the same name as the classes or structure 2)constructors dont have the return type 3)memory allocation happens when constructor is called
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating");
+    }
+}
+class Dog extends Animal {//single inheritance 
+    void bark() {
+        System.out.println("Dog is barking");
+    }
+}//Animal --> Dog ---> Puppy
+class Puppy extends Dog {//phir yai dog ko extend kar raha hai dog animal ko extend kiya tha yai hai multi inheritance 
+    void weep() {
+        System.out.println("Weeping");
+    }
+}
+class Cat extends Animal {
+    //yaha phir yai animal extend kar raha hai jab kai dog bhi animal ko extend kiya tha  Animal ----> Dog and Cat also extending it 
+    void meow() {
+        System.out.println("Meow");
+    }
+}
+// Java classes ke through multiple inheritance allow nahi karta.jabkai java interfaces sai multiple inheritance achieve karta hai yaha 
 
+//MULTIPLE INHERITANCE:through classes it will not allow such that through the interfaces it will do the multiple inheritance 
+interface Camera {
+    void clickPhoto();
+}
+interface MusicPlayer {
+    void playMusic();
+}
+class Smartphone implements Camera, MusicPlayer {
+    public void clickPhoto() {
+        System.out.println("Photo Clicked");
+    }
+    public void playMusic() {
+        System.out.println("Music Playing");
+    }
+}
+//hybrid inheritance:Multiple + Hierarchical ka combination.Java classes ke through directly support nahi karta, lekin interfaces se kar sakte hain.
+interface A {
+    void show();
+}
+interface B extends A {
+}
+interface C extends A {
+}
+class D implements B, C {
+    public void show() {
+        System.out.println("Hybrid Inheritance");
+    }
+}
